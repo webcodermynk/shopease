@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: shopease-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    plan: free
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        # replace with your Vercel URL after deploying the frontend
+        value: https://your-app.vercel.app
